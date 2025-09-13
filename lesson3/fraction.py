@@ -10,10 +10,24 @@
 
 
 class Fraction:
-    pass
+    def __init__(self, numerator, denominator):
+        self.numerator = numerator
+        self.denominator = denominator
+
+    def __repr__(self):
+        return f"Fraction({self.numerator}, {self.denominator})"
+
+    def __str__(self):
+        return f"{self.numerator}/{self.denominator}"
+
+    def __add__(self, other):
+        if self.denominator == other.denominator:
+            return Fraction(self.numerator + other.numerator, self.denominator)
+        else:
+            return "Dont know how to add two fractions"
 
 
-# код для проверки 
+# код для проверки
 fraction1 = Fraction(1, 2)
 print(repr(fraction1))  # Fraction(1, 2)
 print(str(fraction1))  # 1/2
